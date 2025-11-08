@@ -4,10 +4,17 @@ import { ArrowRight, Shield } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      {/* Animated background with shooting stars */}
+      <div className="absolute inset-0 overflow-hidden bg-grid">
+        {/* Shooting stars */}
+        <div className="shooting-star" />
+        <div className="shooting-star" />
+        <div className="shooting-star" />
+        <div className="shooting-star" />
+        <div className="shooting-star" />
+        
+        {/* Radial gradient overlay */}
+        <div className="absolute inset-0 radial-gradient-overlay" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -18,46 +25,48 @@ const HeroSection = () => {
             <span className="text-sm text-muted-foreground">Privacy by design</span>
           </div>
 
-          {/* Main headline */}
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none">
-            Privacy.
+          {/* Main headline - larger, matching reference */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1]">
+            Your digital space,
             <br />
-            <span className="gradient-text">Perfected.</span>
+            <span className="gradient-text">simplified.</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {/* Subheadline - matching reference size */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             The luxury bio link, image hosting, and email service designed for those who value discretion.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <Button 
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium group px-8 h-12 text-base"
+              className="bg-gradient-to-r from-primary to-secondary text-white hover:shadow-luxury font-medium group px-8 h-12 text-base transition-all hover:scale-105"
             >
-              Experience Privacy
+              Get Started
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-border hover:bg-secondary font-medium px-8 h-12 text-base"
+              className="border-border hover:bg-card font-medium px-8 h-12 text-base hover:border-primary/50 transition-all"
             >
               Learn More
             </Button>
           </div>
 
           {/* Trust indicators */}
-          <div className="pt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+          <div className="pt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
               <span>End-to-end encryption</span>
             </div>
+            <span className="text-muted-foreground/30">•</span>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" style={{ animationDelay: "1s" }} />
+              <div className="w-2 h-2 rounded-full bg-secondary animate-pulse-glow" style={{ animationDelay: "1s" }} />
               <span>Zero-knowledge architecture</span>
             </div>
+            <span className="text-muted-foreground/30">•</span>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" style={{ animationDelay: "2s" }} />
               <span>GDPR compliant</span>

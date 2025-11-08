@@ -23,44 +23,49 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-32 relative">
+    <section id="features" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="max-w-3xl mx-auto text-center mb-20 space-y-4">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter">
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 space-y-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
             Engineered for <span className="gradient-text">Excellence</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Three premium services. One unified platform. Uncompromising privacy.
           </p>
         </div>
 
-        {/* Feature cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Feature cards - 2x2 grid on larger screens */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="luxury-card rounded-2xl p-8 hover-scale group"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="luxury-card rounded-2xl p-8 md:p-10 hover-scale group transition-all hover:shadow-glow hover:border-primary/30"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-7 h-7 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all">
+                <feature.icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+              {/* Title with colored accent */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                <span className={index % 2 === 0 ? 'text-primary' : 'text-secondary'}>
+                  {feature.title.split(' ')[0]}
+                </span>{' '}
+                {feature.title.split(' ').slice(1).join(' ')}
+              </h3>
 
               {/* Description */}
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-6 leading-relaxed text-base">
                 {feature.description}
               </p>
 
               {/* Highlights */}
               <ul className="space-y-3">
                 {feature.highlights.map((highlight, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <li key={i} className="flex items-center gap-3 text-sm">
+                    <div className={`w-1.5 h-1.5 rounded-full ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'}`} />
                     <span className="text-foreground/80">{highlight}</span>
                   </li>
                 ))}

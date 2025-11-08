@@ -1,0 +1,112 @@
+import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const faqs = {
+  general: [
+    {
+      question: "What makes alo.ne different from other services?",
+      answer: "alo.ne combines three essential digital services with uncompromising privacy. Unlike competitors, we don't track, sell, or analyze your data. Every feature is built with privacy-first architecture.",
+    },
+    {
+      question: "How quickly can I get started?",
+      answer: "You can set up your account in under 2 minutes. No credit card required for the 14-day trial. All features are immediately available.",
+    },
+    {
+      question: "Can I use my own domain?",
+      answer: "Yes! You can connect custom domains to your bio links and email service. We support over 20+ domain extensions.",
+    },
+    {
+      question: "What are the customization options?",
+      answer: "We offer 170+ customization options including themes, layouts, fonts, colors, and advanced CSS controls for power users.",
+    },
+  ],
+  security: [
+    {
+      question: "How is my data protected?",
+      answer: "All data is encrypted with AES-256 encryption at rest and in transit. We use zero-knowledge architecture, meaning even we cannot access your private information.",
+    },
+    {
+      question: "Are you GDPR compliant?",
+      answer: "Yes, we're fully GDPR compliant and ISO 27001 certified. Your data is stored in secure European data centers with strict privacy laws.",
+    },
+    {
+      question: "Do you track user activity?",
+      answer: "No. We don't use tracking cookies, analytics scripts, or sell your data to third parties. Your privacy is non-negotiable.",
+    },
+    {
+      question: "What happens to my data if I cancel?",
+      answer: "You can export all your data at any time. After cancellation, your data is permanently deleted within 30 days.",
+    },
+  ],
+};
+
+const FAQSection = () => {
+  const [activeTab, setActiveTab] = useState<"general" | "security">("general");
+
+  return (
+    <section className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-6">
+        {/* Section header */}
+        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+            Frequently <span className="gradient-text">asked</span> questions
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Everything you need to know about alo.ne
+          </p>
+        </div>
+
+        {/* Tab buttons */}
+        <div className="flex items-center justify-center gap-3 mb-12">
+          <button
+            onClick={() => setActiveTab("general")}
+            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+              activeTab === "general"
+                ? "bg-primary text-white"
+                : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
+            }`}
+          >
+            General
+          </button>
+          <button
+            onClick={() => setActiveTab("security")}
+            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+              activeTab === "security"
+                ? "bg-secondary text-white"
+                : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
+            }`}
+          >
+            Security
+          </button>
+        </div>
+
+        {/* FAQ Accordion */}
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs[activeTab].map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="luxury-card rounded-xl px-6 border-border hover:border-primary/30 transition-colors"
+              >
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQSection;

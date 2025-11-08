@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Luxury Dark Theme */
-    --background: 220 15% 5%;
-    --foreground: 0 0% 95%;
+    /* alo.ne Blue-Purple Dark Theme */
+    --background: 240 25% 6%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 15% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 240 20% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 15% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 240 20% 10%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Muted champagne gold for luxury accent */
-    --primary: 45 30% 70%;
-    --primary-foreground: 220 15% 5%;
+    /* Blue primary color */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Slightly lighter card variant */
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 0 0% 95%;
+    /* Purple accent */
+    --secondary: 265 51% 59%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 10% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 240 15% 15%;
+    --muted-foreground: 0 0% 63%;
 
-    /* Deep purple accent for sophistication */
-    --accent: 270 50% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 265 51% 59%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 15%;
-    --input: 220 15% 12%;
-    --ring: 45 30% 70%;
+    --border: 240 20% 18%;
+    --input: 240 20% 12%;
+    --ring: 214 84% 56%;
 
     --radius: 0.75rem;
 
-    /* Luxury gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(45 30% 70% / 0.1), hsl(270 50% 60% / 0.1));
-    --gradient-subtle: linear-gradient(180deg, hsl(220 15% 8%), hsl(220 15% 5%));
+    /* Blue-Purple gradients */
+    --gradient-primary: linear-gradient(90deg, hsl(214 84% 56%), hsl(265 51% 59%));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 25% 8%), hsl(240 25% 6%));
     
     /* Glassmorphic effects */
-    --glass-background: hsl(220 15% 10% / 0.4);
+    --glass-background: hsl(240 20% 10% / 0.4);
     --glass-border: hsl(0 0% 100% / 0.1);
     
-    /* Shadows for depth */
-    --shadow-luxury: 0 20px 60px -15px hsl(45 30% 70% / 0.2);
+    /* Shadows with blue/purple glow */
+    --shadow-luxury: 0 20px 60px -15px hsl(214 84% 56% / 0.3);
     --shadow-elevated: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(214 84% 56% / 0.2);
     
     /* Smooth transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -111,12 +111,20 @@ All colors MUST be HSL.
     border-color: hsl(var(--primary) / 0.3);
   }
   
-  /* Animated gradient text */
+  /* Animated gradient text - Blue to Purple */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  
+  /* Background grid pattern */
+  .bg-grid {
+    background-image: 
+      linear-gradient(to right, hsl(240 20% 15% / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(240 20% 15% / 0.1) 1px, transparent 1px);
+    background-size: 80px 80px;
   }
   
   /* Smooth fade in animation */
@@ -161,5 +169,36 @@ All colors MUST be HSL.
   
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  /* Shooting star animation */
+  @keyframes shooting-star {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+  
+  .shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
+    animation: shooting-star 4s linear infinite;
+  }
+  
+  .shooting-star:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .shooting-star:nth-child(2) { left: 25%; animation-delay: 2s; height: 200px; }
+  .shooting-star:nth-child(3) { left: 45%; animation-delay: 4s; }
+  .shooting-star:nth-child(4) { left: 65%; animation-delay: 1s; height: 180px; }
+  .shooting-star:nth-child(5) { left: 85%; animation-delay: 3s; }
+  
+  /* Radial gradient overlay */
+  .radial-gradient-overlay {
+    background: radial-gradient(circle at 50% 30%, hsl(214 84% 56% / 0.08), transparent 50%);
   }
 }

@@ -38,12 +38,21 @@ const Navbar = () => {
           </a>
         </div>
 
-        <Button 
-          size="sm" 
-          className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
-        >
-          Get Started
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button 
+            size="sm" 
+            variant="ghost"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            Sign In
+          </Button>
+          <Button 
+            size="sm" 
+            className="bg-white text-background hover:bg-white/90 font-medium"
+          >
+            Sign Up
+          </Button>
+        </div>
       </div>
     </nav>
   );
