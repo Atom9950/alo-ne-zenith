@@ -118,8 +118,7 @@ All colors MUST be HSL.
   /* Background grid pattern */
   .bg-grid {
     background-image: 
-      linear-gradient(to right, hsl(240 20% 15% / 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(240 20% 15% / 0.1) 1px, transparent 1px);
+      linear-gradient(to right, hsl(240 20% 15% / 0.1) 1px, transparent 1px);
     background-size: 80px 80px;
   }
   

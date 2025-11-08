@@ -49,7 +49,14 @@ const faqs = {
 const FAQSection = () => {
   const [activeTab, setActiveTab] = useState<"general" | "security">("general");
 
-  // Generate scattered squares for left side
+  const verticalGridLines = Array.from({ length: 40 }, (_, i) => ({
+    left: `${i * 2.5}%`,
+    height: `${20 + Math.random() * 80}%`,
+    bottom: `${Math.random() * 30}%`,
+    opacity: 0.2 + Math.random() * 0.6,
+    delay: Math.random() * 2,
+  }));
+
   const scatteredSquares = [
     { size: 35, top: '15%', left: '5%' },
     { size: 40, top: '18%', left: '10%' },
@@ -70,8 +77,28 @@ const FAQSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Scattered squares background pattern */}
-      <div className="bg-pattern-squares">
+      {/* Vertical grid lines background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {verticalGridLines.map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scaleY: 0 }}
+            whileInView={{ opacity: line.opacity, scaleY: 1 }}
+            viewport={{ margin: "-100px" }}
+            transition={{ duration: 1.5, delay: line.delay, ease: "easeOut" }}
+            className="absolute"
+            style={{
+              left: line.left,
+              bottom: line.bottom,
+              width: '1px',
+              height: line.height,
+              background: `linear-gradient(to top, transparent, rgba(107, 157, 255, ${line.opacity}), transparent)`,
+              transformOrigin: 'bottom',
+              filter: 'blur(0.5px)',
+            }}
+          />
+        ))}
+        
         {scatteredSquares.map((square, i) => (
           <div
             key={i}

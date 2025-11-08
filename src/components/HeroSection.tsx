@@ -3,12 +3,14 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  // Generate vertical line positions
-  const verticalLines = Array.from({ length: 25 }, (_, i) => ({
-    left: `${(i * 4) + (Math.random() * 2)}%`,
+  const verticalGridLines = Array.from({ length: 40 }, (_, i) => ({
+    left: `${i * 2.5}%`,
+    height: `${20 + Math.random() * 80}%`,
+    bottom: `${Math.random() * 30}%`,
+    opacity: 0.2 + Math.random() * 0.6,
+    delay: Math.random() * 2,
   }));
 
-  // Generate rectangular blocks for top mosaic pattern - centered
   const topBlocks = [
     { width: 80, height: 190, top: 0, left: 'calc(50% - 467.5px)' },
     { width: 80, height: 230, top: 0, left: 'calc(50% - 382.5px)' },
@@ -25,9 +27,27 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated background with vertical lines and shooting stars */}
-      <div className="fixed inset-0 bg-grid">
-        {/* Rectangular blocks mosaic at top */}
+      {/* Vertical grid lines background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {verticalGridLines.map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: line.opacity, scaleY: 1 }}
+            transition={{ duration: 1.5, delay: line.delay, ease: "easeOut" }}
+            className="absolute"
+            style={{
+              left: line.left,
+              bottom: line.bottom,
+              width: '1px',
+              height: line.height,
+              background: `linear-gradient(to top, transparent, rgba(107, 157, 255, ${line.opacity}), transparent)`,
+              transformOrigin: 'bottom',
+              filter: 'blur(0.5px)',
+            }}
+          />
+        ))}
+        
         {topBlocks.map((block, i) => (
           <div
             key={`block-${i}`}
@@ -44,17 +64,6 @@ const HeroSection = () => {
             }}
           />
         ))}
-
-        {/* Vertical lines pattern */}
-        {verticalLines.map((line, i) => (
-          <div key={i} className="vertical-line" style={{ left: line.left }} />
-        ))}
-        
-        {/* Ambient glow */}
-        <div className="ambient-glow" />
-        
-        {/* Radial gradient overlay */}
-        <div className="absolute inset-0 radial-gradient-overlay" />
       </div>
 
       {/* Shooting stars - outside overflow container */}
