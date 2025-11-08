@@ -7,9 +7,20 @@ const FeaturesSection = () => {
     { size: 120, top: '10%', left: '5%', delay: 0 },
     { size: 100, top: '20%', left: '85%', delay: 2 },
     { size: 140, top: '45%', left: '10%', delay: 4 },
-    { size: 110, top: '60%', left: '80%', delay: 1 },
     { size: 90, top: '75%', left: '15%', delay: 3 },
+    { size: 130, top: '30%', left: '50%', delay: 5 },
+    { size: 95, top: '55%', left: '40%', delay: 2.5 },
+    { size: 105, top: '80%', left: '70%', delay: 4.5 },
     { size: 130, top: '85%', left: '75%', delay: 5 },
+    { size: 95, top: '55%', left: '45%', delay: 2.5 },
+    { size: 90, top: '75%', left: '20%', delay: 3 },
+    { size: 120, top: '10%', left: '10%', delay: 0 },
+    { size: 140, top: '45%', left: '15%', delay: 4 },
+    { size: 100, top: '20%', left: '80%', delay: 2 },
+    { size: 130, top: '30%', left: '55%', delay: 5 },
+
+    
+
   ];
 
   return (
