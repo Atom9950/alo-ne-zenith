@@ -111,13 +111,6 @@ All colors MUST be HSL.
     border-color: hsl(var(--primary) / 0.3);
   }
   
-  /* Animated gradient text - Blue to Purple */
-  .gradient-text {
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   
   /* Background grid pattern */
   .bg-grid {
@@ -142,6 +135,26 @@ All colors MUST be HSL.
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
   }
+  
+  /* Scroll-triggered animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger children animations */
+  .stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { transition-delay: 0.6s; }
   
   /* Floating animation for hero elements */
   @keyframes float {
@@ -174,31 +187,106 @@ All colors MUST be HSL.
   /* Shooting star animation */
   @keyframes shooting-star {
     0% {
-      transform: translateY(-100vh);
-      opacity: 0.6;
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.3;
     }
     100% {
-      transform: translateY(100vh);
+      transform: translateY(calc(100vh + 200px));
       opacity: 0;
     }
   }
   
   .shooting-star {
-    position: absolute;
+    position: fixed;
     width: 2px;
-    height: 150px;
     background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
     animation: shooting-star 4s linear infinite;
+    z-index: 1;
+    pointer-events: none;
   }
   
-  .shooting-star:nth-child(1) { left: 10%; animation-delay: 0s; }
-  .shooting-star:nth-child(2) { left: 25%; animation-delay: 2s; height: 200px; }
-  .shooting-star:nth-child(3) { left: 45%; animation-delay: 4s; }
-  .shooting-star:nth-child(4) { left: 65%; animation-delay: 1s; height: 180px; }
-  .shooting-star:nth-child(5) { left: 85%; animation-delay: 3s; }
+  .shooting-star:nth-child(1) { left: 10%; animation-delay: 0s; height: 200px; }
+  .shooting-star:nth-child(2) { left: 25%; animation-delay: 1.5s; height: 180px; }
+  .shooting-star:nth-child(3) { left: 45%; animation-delay: 3s; height: 220px; }
+  .shooting-star:nth-child(4) { left: 65%; animation-delay: 2.5s; height: 190px; }
+  .shooting-star:nth-child(5) { left: 85%; animation-delay: 4s; height: 210px; }
+  
+  /* Vertical lines background pattern */
+  .vertical-line {
+    position: fixed;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      hsl(var(--primary) / 0.1) 20%, 
+      hsl(var(--secondary) / 0.15) 50%, 
+      hsl(var(--primary) / 0.1) 80%, 
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
   
   /* Radial gradient overlay */
   .radial-gradient-overlay {
     background: radial-gradient(circle at 50% 30%, hsl(214 84% 56% / 0.08), transparent 50%);
+  }
+  
+  /* Ambient glow */
+  .ambient-glow {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 600px;
+    background: radial-gradient(ellipse at center top, 
+      hsl(var(--secondary) / 0.15) 0%, 
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Animated gradient text */
+  .gradient-text {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--primary)));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+  }
+  
+  /* Performance optimization */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -47,12 +47,34 @@ const faqs = {
 
 const FAQSection = () => {
   const [activeTab, setActiveTab] = useState<"general" | "security">("general");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-24 md:py-32 relative">
+    <section ref={sectionRef} className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
             Frequently <span className="gradient-text">asked</span> questions
           </h2>
@@ -62,10 +84,10 @@ const FAQSection = () => {
         </div>
 
         {/* Tab buttons */}
-        <div className="flex items-center justify-center gap-3 mb-12">
+        <div className="flex items-center justify-center gap-3 mb-12 animate-on-scroll">
           <button
             onClick={() => setActiveTab("general")}
-            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 will-change-transform ${
               activeTab === "general"
                 ? "bg-primary text-white"
                 : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
@@ -75,7 +97,7 @@ const FAQSection = () => {
           </button>
           <button
             onClick={() => setActiveTab("security")}
-            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 will-change-transform ${
               activeTab === "security"
                 ? "bg-secondary text-white"
                 : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
@@ -86,13 +108,13 @@ const FAQSection = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto stagger-children">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs[activeTab].map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="luxury-card rounded-xl px-6 border-border hover:border-primary/30 transition-colors"
+                className="luxury-card rounded-xl px-6 border-border hover:border-primary/30 transition-all duration-300 animate-on-scroll"
               >
                 <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5">
                   {faq.question}

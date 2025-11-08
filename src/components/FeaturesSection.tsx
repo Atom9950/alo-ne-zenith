@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link, Mail, ImageIcon } from "lucide-react";
 
 const features = [
@@ -22,11 +23,34 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="features" className="py-24 md:py-32 relative">
+    <section ref={sectionRef} id="features" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 space-y-4">
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 space-y-4 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
             Engineered for <span className="gradient-text">Excellence</span>
           </h2>
@@ -36,12 +60,11 @@ const FeaturesSection = () => {
         </div>
 
         {/* Feature cards - 2x2 grid on larger screens */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto stagger-children">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="luxury-card rounded-2xl p-8 md:p-10 hover-scale group transition-all hover:shadow-glow hover:border-primary/30"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll"
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all">
