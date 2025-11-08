@@ -1,8 +1,16 @@
+import { motion } from "framer-motion";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border py-12">
+    <motion.footer 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="border-t border-border py-12"
+    >
       <div className="container mx-auto px-6 max-w-[1200px]">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -130,7 +138,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

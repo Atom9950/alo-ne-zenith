@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -47,7 +48,6 @@ const faqs = {
 
 const FAQSection = () => {
   const [activeTab, setActiveTab] = useState<"general" | "security">("general");
-  const sectionRef = useRef<HTMLElement>(null);
 
   // Generate scattered squares for left side
   const scatteredSquares = [
@@ -59,43 +59,8 @@ const FAQSection = () => {
     { size: 42, top: '10%', left: '15%' },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("animate-in");
-            }, 50);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px",
-      }
-    );
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const timer = setTimeout(() => {
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => {
-        observer.observe(el);
-      });
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden">
+    <section className="py-24 md:py-32 relative overflow-hidden">
       {/* Scattered squares background pattern */}
       <div className="bg-pattern-squares">
         {scatteredSquares.map((square, i) => (
@@ -114,17 +79,29 @@ const FAQSection = () => {
 
       <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
-        <div className="max-w-[800px] mx-auto text-center mb-16 space-y-4 animate-on-scroll">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-[800px] mx-auto text-center mb-16 space-y-4"
+        >
           <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
             Frequently <span className="gradient-text">asked</span> questions
           </h2>
           <p className="text-[15px] text-muted-foreground leading-[1.7]" style={{ fontWeight: 400 }}>
             Everything you need to know about our services. Can't find the answer you're looking for? Feel free to contact us.
           </p>
-        </div>
+        </motion.div>
 
         {/* Tab buttons */}
-        <div className="flex items-center justify-center gap-3 mb-12 animate-on-scroll">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="flex items-center justify-center gap-3 mb-12"
+        >
           <button
             onClick={() => setActiveTab("general")}
             className={`px-6 py-2.5 rounded-lg text-[14px] transition-all duration-200 ${
@@ -147,24 +124,31 @@ const FAQSection = () => {
           >
             Security
           </button>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-[900px] mx-auto stagger-children">
+        <div className="max-w-[900px] mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs[activeTab].map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-transparent border-b border-border/50 animate-on-scroll"
+              <motion.div
+                key={`${activeTab}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               >
-                <AccordionTrigger className="text-left text-[16px] hover:no-underline py-6 hover:text-white" style={{ fontWeight: 500 }}>
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-[1.7] pb-6 text-[15px]" style={{ fontWeight: 400 }}>
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="bg-transparent border-b border-border/50"
+                >
+                  <AccordionTrigger className="text-left text-[16px] hover:no-underline py-6 hover:text-white" style={{ fontWeight: 500 }}>
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-[1.7] pb-6 text-[15px]" style={{ fontWeight: 400 }}>
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </div>

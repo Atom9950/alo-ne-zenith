@@ -1,49 +1,18 @@
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const TeamSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("animate-in");
-            }, 50);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px",
-      }
-    );
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const timer = setTimeout(() => {
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => {
-        observer.observe(el);
-      });
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 relative">
+    <section className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 max-w-[1200px]">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Team Members */}
-          <div className="flex gap-12 justify-center animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex gap-12 justify-center"
+          >
             {/* Ryan */}
             <div className="text-center">
               <div className="w-32 h-32 rounded-full mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(107, 157, 255, 0.2), rgba(51, 102, 255, 0.2))' }}>
@@ -65,10 +34,16 @@ const TeamSection = () => {
               <h3 className="text-[18px] mb-1" style={{ fontWeight: 500 }}>Iniqus</h3>
               <p className="text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>DEVELOPER</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Team Info */}
-          <div className="space-y-6 animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6"
+          >
             <div>
               <p className="text-[12px] text-muted-foreground uppercase tracking-wider mb-2" style={{ fontWeight: 400 }}>THE TEAM</p>
               <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
@@ -87,7 +62,7 @@ const TeamSection = () => {
                 Iniqus has taken over the development of alo.ne and has been appointed the owner position.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

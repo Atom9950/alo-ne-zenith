@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -14,7 +15,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "glass py-4 border-b border-white/10"
@@ -60,7 +64,7 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

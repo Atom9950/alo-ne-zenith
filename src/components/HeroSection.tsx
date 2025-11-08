@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   // Generate vertical line positions
@@ -66,35 +67,45 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-[1100px] mx-auto text-center space-y-8">
           {/* Badge - animated */}
-          <div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10"
           >
             <span className="text-[13px] text-white" style={{ fontWeight: 400 }}>Join our new Discord!</span>
             <ArrowRight className="w-3.5 h-3.5 text-white" />
-          </div>
+          </motion.div>
 
           {/* Main headline - matching reference exactly */}
-          <h1 
-            className="text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15] opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.4s", letterSpacing: "-0.02em", fontWeight: 500 }}
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            className="text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15]"
+            style={{ letterSpacing: "-0.02em", fontWeight: 500 }}
           >
             Your digital space,{" "}
             <span className="gradient-text will-change-transform">simplified.</span>
-          </h1>
+          </motion.h1>
 
           {/* Subheadline - matching reference exactly */}
-          <p 
-            className="text-[15px] md:text-[16px] text-muted-foreground max-w-[900px] mx-auto leading-[1.7] opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.6s", fontWeight: 400, letterSpacing: "0em" }}
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            className="text-[15px] md:text-[16px] text-muted-foreground max-w-[900px] mx-auto leading-[1.7]"
+            style={{ fontWeight: 400, letterSpacing: "0em" }}
           >
             The luxury privacy-based service dedicated to safeguarding your information in style with our personalized bio-link service, file hosting, and email service.
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10 opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.8s" }}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10"
           >
             <Button 
               size="lg" 
@@ -116,12 +127,14 @@ const HeroSection = () => {
             >
               Learn More
             </Button>
-          </div>
+          </motion.div>
 
           {/* Trust indicators */}
-          <div 
-            className="pt-16 flex flex-wrap items-center justify-center gap-8 text-[14px] text-muted-foreground opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "1s" }}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+            className="pt-16 flex flex-wrap items-center justify-center gap-8 text-[14px] text-muted-foreground"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#6b9dff' }} />
@@ -137,7 +150,7 @@ const HeroSection = () => {
               <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#3366ff', animationDelay: "2s" }} />
               <span>GDPR compliant</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

@@ -1,43 +1,6 @@
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const FeaturesSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("animate-in");
-            }, 50);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px",
-      }
-    );
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => {
-        observer.observe(el);
-      });
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      const elements = section.querySelectorAll(".animate-on-scroll");
-      elements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
-    };
-  }, []);
 
   // Generate floating squares positions
   const floatingSquares = [
@@ -50,7 +13,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="features" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="features" className="py-24 md:py-32 relative overflow-hidden">
       {/* Floating squares background pattern */}
       <div className="bg-pattern-squares">
         {floatingSquares.map((square, i) => (
@@ -70,16 +33,28 @@ const FeaturesSection = () => {
 
       <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
-        <div className="text-center mb-20 animate-on-scroll">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-20"
+        >
           <h2 className="text-[36px] md:text-[42px] leading-tight mb-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
             Share files, send emails and look cool.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Feature cards - 2x2 grid */}
-        <div className="grid md:grid-cols-2 gap-6 stagger-children">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* 40+ Domains */}
-          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+          >
             <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
               <span className="gradient-text">40+</span> Domains
             </h3>
@@ -93,10 +68,16 @@ const FeaturesSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Unique Email */}
-          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+          >
             <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
               <span className="gradient-text">Unique</span> Email
             </h3>
@@ -113,10 +94,16 @@ const FeaturesSection = () => {
             <p className="text-muted-foreground text-[14px] leading-[1.7]" style={{ fontWeight: 400 }}>
               Why have a boring email when you can have a cool one with the added bonus of our minimal-logs policy
             </p>
-          </div>
+          </motion.div>
 
           {/* Secure Filehost */}
-          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+          >
             <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
               <span className="gradient-text">Secure</span> Filehost
             </h3>
@@ -137,10 +124,16 @@ const FeaturesSection = () => {
                 <span className="text-muted-foreground">2GB Storage</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Exclusive Biolink */}
-          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+          >
             <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
               <span className="gradient-text">Exclusive</span> Biolink
             </h3>
@@ -160,7 +153,7 @@ const FeaturesSection = () => {
                 <span className="text-muted-foreground">Domains</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
