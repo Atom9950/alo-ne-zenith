@@ -8,25 +8,67 @@ const FeaturesSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
+            setTimeout(() => {
+              entry.target.classList.add("animate-in");
+            }, 50);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px",
       }
     );
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
+    const section = sectionRef.current;
+    if (!section) return;
 
-    return () => observer.disconnect();
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
   }, []);
 
+  // Generate floating squares positions
+  const floatingSquares = [
+    { size: 120, top: '10%', left: '5%', delay: 0 },
+    { size: 100, top: '20%', left: '85%', delay: 2 },
+    { size: 140, top: '45%', left: '10%', delay: 4 },
+    { size: 110, top: '60%', left: '80%', delay: 1 },
+    { size: 90, top: '75%', left: '15%', delay: 3 },
+    { size: 130, top: '85%', left: '75%', delay: 5 },
+  ];
+
   return (
-    <section ref={sectionRef} id="features" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6 max-w-[1200px]">
+    <section ref={sectionRef} id="features" className="py-24 md:py-32 relative overflow-hidden">
+      {/* Floating squares background pattern */}
+      <div className="bg-pattern-squares">
+        {floatingSquares.map((square, i) => (
+          <div
+            key={i}
+            className="floating-square"
+            style={{
+              width: `${square.size}px`,
+              height: `${square.size}px`,
+              top: square.top,
+              left: square.left,
+              animationDelay: `${square.delay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
         <div className="text-center mb-20 animate-on-scroll">
           <h2 className="text-[36px] md:text-[42px] leading-tight mb-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
@@ -61,10 +103,12 @@ const FeaturesSection = () => {
             <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
               The only email provider designed with luxury and privacy in mind
             </p>
-            <div className="bg-background border border-border rounded-lg px-4 py-3 mb-6">
-              <code className="text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
-                t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id
-              </code>
+            <div className="bg-background border border-border rounded-lg px-4 py-3 mb-6 overflow-hidden">
+              <div className="animate-scroll-horizontal">
+                <code className="text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
+                  t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id • t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id
+                </code>
+              </div>
             </div>
             <p className="text-muted-foreground text-[14px] leading-[1.7]" style={{ fontWeight: 400 }}>
               Why have a boring email when you can have a cool one with the added bonus of our minimal-logs policy

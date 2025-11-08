@@ -141,23 +141,39 @@ All colors MUST be HSL.
   
   /* Scroll-triggered animations */
   .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   
   .animate-on-scroll.animate-in {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
   
   /* Stagger children animations */
-  .stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
-  .stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
-  .stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
-  .stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
-  .stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
-  .stagger-children > *:nth-child(6) { transition-delay: 0.6s; }
+  .stagger-children > *:nth-child(1).animate-on-scroll { transition-delay: 0.1s !important; }
+  .stagger-children > *:nth-child(2).animate-on-scroll { transition-delay: 0.2s !important; }
+  .stagger-children > *:nth-child(3).animate-on-scroll { transition-delay: 0.3s !important; }
+  .stagger-children > *:nth-child(4).animate-on-scroll { transition-delay: 0.4s !important; }
+  .stagger-children > *:nth-child(5).animate-on-scroll { transition-delay: 0.5s !important; }
+  .stagger-children > *:nth-child(6).animate-on-scroll { transition-delay: 0.6s !important; }
+  
+  /* Horizontal scroll animation for email marquee */
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll-horizontal {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-horizontal 20s linear infinite;
+  }
   
   /* Floating animation for hero elements */
   @keyframes float {
@@ -190,17 +206,17 @@ All colors MUST be HSL.
   /* Shooting star animation */
   @keyframes shooting-star {
     0% {
-      transform: translateY(-200px);
+      transform: translateY(-250px);
       opacity: 0;
     }
-    10% {
+    5% {
       opacity: 0.8;
     }
-    90% {
+    95% {
       opacity: 0.3;
     }
     100% {
-      transform: translateY(calc(100vh + 200px));
+      transform: translateY(calc(100vh + 250px));
       opacity: 0;
     }
   }
@@ -209,16 +225,17 @@ All colors MUST be HSL.
     position: fixed;
     width: 2px;
     background: linear-gradient(to bottom, transparent, #6b9dff, transparent);
-    animation: shooting-star 4s linear infinite;
+    animation: shooting-star 3s linear infinite;
     z-index: 1;
     pointer-events: none;
+    opacity: 0;
   }
   
-  .shooting-star:nth-child(1) { left: 10%; animation-delay: 0s; height: 200px; }
-  .shooting-star:nth-child(2) { left: 25%; animation-delay: 1.5s; height: 180px; }
-  .shooting-star:nth-child(3) { left: 45%; animation-delay: 3s; height: 220px; }
-  .shooting-star:nth-child(4) { left: 65%; animation-delay: 2.5s; height: 190px; }
-  .shooting-star:nth-child(5) { left: 85%; animation-delay: 4s; height: 210px; }
+  .shooting-star:nth-child(1) { left: 10%; animation-delay: -2s; height: 200px; }
+  .shooting-star:nth-child(2) { left: 25%; animation-delay: 8s; height: 180px; }
+  .shooting-star:nth-child(3) { left: 45%; animation-delay: 16s; height: 220px; }
+  .shooting-star:nth-child(4) { left: 65%; animation-delay: 24s; height: 190px; }
+  .shooting-star:nth-child(5) { left: 85%; animation-delay: 32s; height: 210px; }
   
   /* Vertical lines background pattern */
   .vertical-line {
@@ -280,6 +297,45 @@ All colors MUST be HSL.
   
   .will-change-opacity {
     will-change: opacity;
+  }
+  
+  /* Floating squares background pattern */
+  @keyframes float-squares {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    66% {
+      transform: translateY(-10px) translateX(-10px);
+    }
+  }
+  
+  .floating-square {
+    position: absolute;
+    background: rgba(107, 157, 255, 0.05);
+    border: 1px solid rgba(107, 157, 255, 0.1);
+    border-radius: 16px;
+    animation: float-squares 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  /* Scattered squares pattern */
+  .scattered-square {
+    position: absolute;
+    background: rgba(107, 157, 255, 0.03);
+    border: 1px solid rgba(107, 157, 255, 0.08);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+  
+  /* Section background patterns container */
+  .bg-pattern-squares {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
   
   /* Reduced motion support */

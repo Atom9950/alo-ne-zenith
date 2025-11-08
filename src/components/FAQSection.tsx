@@ -49,30 +49,70 @@ const FAQSection = () => {
   const [activeTab, setActiveTab] = useState<"general" | "security">("general");
   const sectionRef = useRef<HTMLElement>(null);
 
+  // Generate scattered squares for left side
+  const scatteredSquares = [
+    { size: 35, top: '15%', left: '5%' },
+    { size: 40, top: '18%', left: '10%' },
+    { size: 30, top: '12%', left: '8%' },
+    { size: 38, top: '22%', left: '6%' },
+    { size: 33, top: '25%', left: '12%' },
+    { size: 42, top: '10%', left: '15%' },
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
+            setTimeout(() => {
+              entry.target.classList.add("animate-in");
+            }, 50);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px",
       }
     );
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
+    const section = sectionRef.current;
+    if (!section) return;
 
-    return () => observer.disconnect();
+    const timer = setTimeout(() => {
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6 max-w-[1200px]">
+    <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden">
+      {/* Scattered squares background pattern */}
+      <div className="bg-pattern-squares">
+        {scatteredSquares.map((square, i) => (
+          <div
+            key={i}
+            className="scattered-square"
+            style={{
+              width: `${square.size}px`,
+              height: `${square.size}px`,
+              top: square.top,
+              left: square.left,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
         <div className="max-w-[800px] mx-auto text-center mb-16 space-y-4 animate-on-scroll">
           <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>

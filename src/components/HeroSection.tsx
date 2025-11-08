@@ -7,21 +7,47 @@ const HeroSection = () => {
     left: `${(i * 4) + (Math.random() * 2)}%`,
   }));
 
+  // Generate rectangular blocks for top mosaic pattern - centered
+  const topBlocks = [
+    { width: 80, height: 190, top: 0, left: 'calc(50% - 467.5px)' },
+    { width: 80, height: 230, top: 0, left: 'calc(50% - 382.5px)' },
+    { width: 80, height: 270, top: 0, left: 'calc(50% - 297.5px)' },
+    { width: 80, height: 310, top: 0, left: 'calc(50% - 212.5px)' },
+    { width: 80, height: 350, top: 0, left: 'calc(50% - 127.5px)' },
+    { width: 80, height: 390, top: 0, left: 'calc(50% - 42.5px)' },
+    { width: 80, height: 350, top: 0, left: 'calc(50% + 42.5px)' },
+    { width: 80, height: 310, top: 0, left: 'calc(50% + 127.5px)' },
+    { width: 80, height: 270, top: 0, left: 'calc(50% + 212.5px)' },
+    { width: 80, height: 230, top: 0, left: 'calc(50% + 297.5px)' },
+    { width: 80, height: 190, top: 0, left: 'calc(50% + 382.5px)' },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated background with vertical lines and shooting stars */}
-      <div className="fixed inset-0 overflow-hidden bg-grid">
+      <div className="fixed inset-0 bg-grid">
+        {/* Rectangular blocks mosaic at top */}
+        {topBlocks.map((block, i) => (
+          <div
+            key={`block-${i}`}
+            className="absolute"
+            style={{
+              width: `${block.width}px`,
+              height: `${block.height}px`,
+              top: `${block.top}px`,
+              left: block.left,
+              background: 'rgba(107, 157, 255, 0.04)',
+              border: '1px solid rgba(107, 157, 255, 0.12)',
+              borderRadius: '8px',
+              pointerEvents: 'none',
+            }}
+          />
+        ))}
+
         {/* Vertical lines pattern */}
         {verticalLines.map((line, i) => (
           <div key={i} className="vertical-line" style={{ left: line.left }} />
         ))}
-        
-        {/* Shooting stars */}
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-        <div className="shooting-star" />
         
         {/* Ambient glow */}
         <div className="ambient-glow" />
@@ -29,6 +55,13 @@ const HeroSection = () => {
         {/* Radial gradient overlay */}
         <div className="absolute inset-0 radial-gradient-overlay" />
       </div>
+
+      {/* Shooting stars - outside overflow container */}
+      <div className="shooting-star" />
+      <div className="shooting-star" />
+      <div className="shooting-star" />
+      <div className="shooting-star" />
+      <div className="shooting-star" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-[1100px] mx-auto text-center space-y-8">
@@ -91,17 +124,17 @@ const HeroSection = () => {
             style={{ animationDelay: "1s" }}
           >
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
+              <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#6b9dff' }} />
               <span>End-to-end encryption</span>
             </div>
             <span className="text-muted-foreground/30">•</span>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-secondary animate-pulse-glow" style={{ animationDelay: "1s" }} />
+              <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#4d7fff', animationDelay: "1s" }} />
               <span>Zero-knowledge architecture</span>
             </div>
             <span className="text-muted-foreground/30">•</span>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" style={{ animationDelay: "2s" }} />
+              <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#3366ff', animationDelay: "2s" }} />
               <span>GDPR compliant</span>
             </div>
           </div>

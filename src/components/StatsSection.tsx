@@ -10,30 +10,72 @@ const stats = [
 const StatsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
+  // Generate scattered squares for top-right area
+  const scatteredSquares = [
+    { size: 40, top: '8%', right: '5%' },
+    { size: 35, top: '5%', right: '12%' },
+    { size: 45, top: '12%', right: '8%' },
+    { size: 30, top: '3%', right: '18%' },
+    { size: 38, top: '15%', right: '15%' },
+    { size: 42, top: '8%', right: '22%' },
+    { size: 33, top: '18%', right: '20%' },
+    { size: 36, top: '4%', right: '28%' },
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
+            setTimeout(() => {
+              entry.target.classList.add("animate-in");
+            }, 50);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px",
       }
     );
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
+    const section = sectionRef.current;
+    if (!section) return;
 
-    return () => observer.disconnect();
+    const timer = setTimeout(() => {
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 relative">
-      <div className="container mx-auto px-6 max-w-[1200px]">
+    <section ref={sectionRef} className="py-24 relative overflow-hidden">
+      {/* Scattered squares background pattern */}
+      <div className="bg-pattern-squares">
+        {scatteredSquares.map((square, i) => (
+          <div
+            key={i}
+            className="scattered-square"
+            style={{
+              width: `${square.size}px`,
+              height: `${square.size}px`,
+              top: square.top,
+              right: square.right,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         <div className="glass rounded-3xl p-12 md:p-16 animate-on-scroll">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 stagger-children">
             {stats.map((stat, index) => (

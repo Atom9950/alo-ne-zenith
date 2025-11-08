@@ -8,20 +8,34 @@ const TeamSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
+            setTimeout(() => {
+              entry.target.classList.add("animate-in");
+            }, 50);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px",
       }
     );
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
+    const section = sectionRef.current;
+    if (!section) return;
 
-    return () => observer.disconnect();
+    const timer = setTimeout(() => {
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      const elements = section.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
   }, []);
 
   return (
