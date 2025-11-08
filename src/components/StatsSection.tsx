@@ -39,11 +39,11 @@ const StatsSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
+      {/* <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="glass rounded-3xl p-12 md:p-16"
         >
@@ -53,7 +53,7 @@ const StatsSection = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 className="text-center space-y-2"
               >
@@ -67,7 +67,7 @@ const StatsSection = () => {
             ))}
           </div>
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 };

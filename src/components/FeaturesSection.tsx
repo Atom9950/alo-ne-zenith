@@ -36,7 +36,7 @@ const FeaturesSection = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-20"
         >
@@ -51,108 +51,224 @@ const FeaturesSection = () => {
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
           >
-            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="text-[22px] mb-4 leading-tight" 
+              style={{ fontWeight: 500 }}
+            >
               <span className="gradient-text">40+</span> Domains
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              style={{ fontWeight: 400 }}
+            >
               We offer a unique selection of domains that you can use to elevate your presence
-            </p>
-            <div className="grid grid-cols-3 gap-3">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              className="grid grid-cols-3 gap-3"
+            >
               {['alo.ne', 'afra.id', 'ra.pe', 'sexu.al', 'deni.al', 'excus.es', 'bayon.et', 'karamb.it', 'trapst.ar'].map((domain, i) => (
-                <div key={i} className="bg-background border border-border rounded-lg px-3 py-2 text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ margin: "-100px" }}
+                  transition={{ duration: 0.3, delay: 0.6 + (i * 0.05), ease: "easeOut" }}
+                  className="bg-background border border-border rounded-lg px-3 py-2 text-[13px] font-mono" 
+                  style={{ fontWeight: 400, color: '#6b9dff' }}
+                >
                   {domain}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Unique Email */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
           >
-            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="text-[22px] mb-4 leading-tight" 
+              style={{ fontWeight: 500 }}
+            >
               <span className="gradient-text">Unique</span> Email
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              style={{ fontWeight: 400 }}
+            >
               The only email provider designed with luxury and privacy in mind
-            </p>
-            <div className="bg-background border border-border rounded-lg px-4 py-3 mb-6 overflow-hidden">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              className="bg-background border border-border rounded-lg px-4 py-3 mb-6 overflow-hidden"
+            >
               <div className="animate-scroll-horizontal">
                 <code className="text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
                   t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id • t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id
                 </code>
               </div>
-            </div>
-            <p className="text-muted-foreground text-[14px] leading-[1.7]" style={{ fontWeight: 400 }}>
+            </motion.div>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+              className="text-muted-foreground text-[14px] leading-[1.7]" 
+              style={{ fontWeight: 400 }}
+            >
               Why have a boring email when you can have a cool one with the added bonus of our minimal-logs policy
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Secure Filehost */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
           >
-            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="text-[22px] mb-4 leading-tight" 
+              style={{ fontWeight: 500 }}
+            >
               <span className="gradient-text">Secure</span> Filehost
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              style={{ fontWeight: 400 }}
+            >
               With Alone, you can upload files securely — even we can't access their content. Our open-source end-to-end encryption is also supported on ShareX.
-            </p>
-            <div className="flex flex-wrap gap-4 text-[13px]" style={{ fontWeight: 400 }}>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span className="text-muted-foreground">End-to-End Encryption</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span className="text-muted-foreground">ShareX Support</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span className="text-muted-foreground">2GB Storage</span>
-              </div>
-            </div>
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              className="flex flex-wrap gap-4 text-[13px]" 
+              style={{ fontWeight: 400 }}
+            >
+              {['End-to-End Encryption', 'ShareX Support', '2GB Storage'].map((feature, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ margin: "-100px" }}
+                  transition={{ duration: 0.4, delay: 0.6 + (i * 0.1), ease: "easeOut" }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="text-green-500">✓</span>
+                  <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Exclusive Biolink */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
           >
-            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="text-[22px] mb-4 leading-tight" 
+              style={{ fontWeight: 500 }}
+            >
               <span className="gradient-text">Exclusive</span> Biolink
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              style={{ fontWeight: 400 }}
+            >
               The best domains, with over 170 customization options to ensure you never run out of ways to stand out
-            </p>
-            <div className="flex flex-wrap gap-4 text-[13px]" style={{ fontWeight: 400 }}>
-              <div className="flex items-center gap-2">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              className="flex flex-wrap gap-4 text-[13px]" 
+              style={{ fontWeight: 400 }}
+            >
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ margin: "-100px" }}
+                transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
+                className="flex items-center gap-2"
+              >
                 <span style={{ color: '#6b9dff' }}>170+</span>
                 <span className="text-muted-foreground">Customization Options</span>
-              </div>
-              <div className="flex items-center gap-2">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ margin: "-100px" }}
+                transition={{ duration: 0.4, delay: 0.7, ease: "easeOut" }}
+                className="flex items-center gap-2"
+              >
                 <span style={{ color: '#6b9dff' }}>•</span>
-              </div>
-              <div className="flex items-center gap-2">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ margin: "-100px" }}
+                transition={{ duration: 0.4, delay: 0.8, ease: "easeOut" }}
+                className="flex items-center gap-2"
+              >
                 <span style={{ color: '#6b9dff' }}>20+</span>
                 <span className="text-muted-foreground">Domains</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

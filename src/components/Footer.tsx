@@ -7,21 +7,26 @@ const Footer = () => {
     <motion.footer 
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="border-t border-border py-12"
     >
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="space-y-4">
-            <a href="#" className="text-2xl inline-block" style={{ fontWeight: 600 }}>
-              alo<span style={{ color: '#6b9dff' }}>.ne</span>
-            </a>
-            <p className="text-[13px] text-muted-foreground leading-relaxed" style={{ fontWeight: 400 }}>
-              Privacy-first digital services for the discerning individual.
-            </p>
-          </div>
+     <div className="container mx-auto px-6 max-w-[1200px]">
+  <div className="grid md:grid-cols-4 gap-12 mb-12">
+    {/* Brand */}
+    <div className="space-y-4">
+      <a href="/" className="group relative inline-block pb-2">
+        <img src="/image2.png" alt="logo" className="h-8 w-auto transition-transform duration-300 ease-out group-hover:scale-110" />
+        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full origin-left" 
+              style={{
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 50%)',
+                background: 'linear-gradient(to right, transparent 0%, white 50%, transparent 100%)'
+              }}></span>
+      </a>
+      <p className="text-[13px] text-muted-foreground leading-relaxed" style={{ fontWeight: 400 }}>
+        Privacy-first digital services for the discerning individual.
+      </p>
+    </div>
 
           {/* Product */}
           <div className="space-y-4">

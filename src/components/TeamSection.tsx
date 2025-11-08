@@ -9,16 +9,18 @@ const TeamSection = () => {
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex gap-12 justify-center"
           >
             {/* Ryan */}
             <div className="text-center">
               <div className="w-32 h-32 rounded-full mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(107, 157, 255, 0.2), rgba(51, 102, 255, 0.2))' }}>
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full" style={{ background: 'linear-gradient(135deg, #6b9dff, #3366ff)' }}></div>
-                </div>
+                <img 
+                  src="/image1.png" 
+                  alt="Ryan" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-[18px] mb-1" style={{ fontWeight: 500 }}>Ryan</h3>
               <p className="text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>FOUNDER</p>
@@ -27,9 +29,11 @@ const TeamSection = () => {
             {/* Iniqus */}
             <div className="text-center">
               <div className="w-32 h-32 rounded-full mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(51, 102, 255, 0.2), rgba(107, 157, 255, 0.2))' }}>
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full" style={{ background: 'linear-gradient(135deg, #3366ff, #6b9dff)' }}></div>
-                </div>
+                <img 
+                  src="/image.png" 
+                  alt="Iniqus" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-[18px] mb-1" style={{ fontWeight: 500 }}>Iniqus</h3>
               <p className="text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>DEVELOPER</p>
@@ -40,7 +44,7 @@ const TeamSection = () => {
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-6"
           >

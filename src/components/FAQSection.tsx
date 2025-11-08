@@ -82,7 +82,7 @@ const FAQSection = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-[800px] mx-auto text-center mb-16 space-y-4"
         >
@@ -98,7 +98,7 @@ const FAQSection = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           className="flex items-center justify-center gap-3 mb-12"
         >
@@ -134,7 +134,7 @@ const FAQSection = () => {
                 key={`${activeTab}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               >
                 <AccordionItem
