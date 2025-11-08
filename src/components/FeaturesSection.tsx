@@ -53,7 +53,10 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            style={{
+              boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -20 }}
@@ -104,7 +107,10 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            style={{
+              boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -20 }}
@@ -157,7 +163,10 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            style={{
+              boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -20 }}
@@ -209,7 +218,10 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform"
+            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            style={{
+              boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -20 }}
