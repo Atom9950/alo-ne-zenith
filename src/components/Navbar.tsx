@@ -25,19 +25,19 @@ const Navbar = () => {
         backgroundColor: isScrolled ? "rgba(10, 10, 31, 0.8)" : "transparent",
       }}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold tracking-tighter">
-          alo<span className="text-primary">.ne</span>
+      <div className="container mx-auto px-10 flex items-center justify-between max-w-[1200px]">
+        <a href="#" className="text-2xl" style={{ fontWeight: 600 }}>
+          alo<span style={{ color: '#6b9dff' }}>.ne</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#features" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
             Features
           </a>
-          <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#about" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
             About
           </a>
-          <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#contact" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
             Contact
           </a>
         </div>
@@ -46,13 +46,15 @@ const Navbar = () => {
           <Button 
             size="sm" 
             variant="ghost"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-[14px] text-muted-foreground hover:text-foreground"
+            style={{ fontWeight: 400 }}
           >
             Sign In
           </Button>
           <Button 
             size="sm" 
-            className="bg-white text-background hover:bg-white/90 font-medium transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
+            className="bg-white text-background hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform text-[14px]"
+            style={{ fontWeight: 500 }}
           >
             Sign Up
           </Button>

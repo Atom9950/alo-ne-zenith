@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   // Generate vertical line positions
@@ -31,42 +31,46 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="max-w-[1100px] mx-auto text-center space-y-8">
           {/* Badge - animated */}
           <div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 opacity-0 animate-fade-in-up"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
           >
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Privacy by design</span>
+            <span className="text-[13px] text-white" style={{ fontWeight: 400 }}>Join our new Discord!</span>
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </div>
 
-          {/* Main headline - larger, matching reference */}
+          {/* Main headline - matching reference exactly */}
           <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.4s" }}
+            className="text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15] opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.4s", letterSpacing: "-0.02em", fontWeight: 500 }}
           >
-            Your digital space,
-            <br />
+            Your digital space,{" "}
             <span className="gradient-text will-change-transform">simplified.</span>
           </h1>
 
-          {/* Subheadline - matching reference size */}
+          {/* Subheadline - matching reference exactly */}
           <p 
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "0.6s" }}
+            className="text-[15px] md:text-[16px] text-muted-foreground max-w-[900px] mx-auto leading-[1.7] opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.6s", fontWeight: 400, letterSpacing: "0em" }}
           >
-            The luxury bio link, image hosting, and email service designed for those who value discretion.
+            The luxury privacy-based service dedicated to safeguarding your information in style with our personalized bio-link service, file hosting, and email service.
           </p>
 
           {/* CTA Buttons */}
           <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 opacity-0 animate-fade-in-up"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.8s" }}
           >
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-secondary text-white hover:shadow-luxury font-medium group px-8 h-12 text-base transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
+              className="text-white hover:shadow-luxury group px-8 h-12 text-[16px] transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
+              style={{ 
+                fontWeight: 500,
+                background: 'linear-gradient(90deg, #6b9dff, #4d7fff, #3366ff)',
+                backgroundSize: '200% auto'
+              }}
             >
               Get Started
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -74,7 +78,8 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-border hover:bg-card font-medium px-8 h-12 text-base hover:border-primary/50 transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
+              className="border-border hover:bg-card px-8 h-12 text-[16px] hover:border-primary/50 transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
+              style={{ fontWeight: 500 }}
             >
               Learn More
             </Button>
@@ -82,7 +87,7 @@ const HeroSection = () => {
 
           {/* Trust indicators */}
           <div 
-            className="pt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground opacity-0 animate-fade-in-up"
+            className="pt-16 flex flex-wrap items-center justify-center gap-8 text-[14px] text-muted-foreground opacity-0 animate-fade-in-up"
             style={{ animationDelay: "1s" }}
           >
             <div className="flex items-center gap-2">

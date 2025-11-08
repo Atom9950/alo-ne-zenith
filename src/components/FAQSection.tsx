@@ -72,14 +72,14 @@ const FAQSection = () => {
 
   return (
     <section ref={sectionRef} className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-[1200px]">
         {/* Section header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4 animate-on-scroll">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+        <div className="max-w-[800px] mx-auto text-center mb-16 space-y-4 animate-on-scroll">
+          <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
             Frequently <span className="gradient-text">asked</span> questions
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Everything you need to know about alo.ne
+          <p className="text-[15px] text-muted-foreground leading-[1.7]" style={{ fontWeight: 400 }}>
+            Everything you need to know about our services. Can't find the answer you're looking for? Feel free to contact us.
           </p>
         </div>
 
@@ -87,39 +87,41 @@ const FAQSection = () => {
         <div className="flex items-center justify-center gap-3 mb-12 animate-on-scroll">
           <button
             onClick={() => setActiveTab("general")}
-            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 will-change-transform ${
+            className={`px-6 py-2.5 rounded-lg text-[14px] transition-all duration-200 ${
               activeTab === "general"
-                ? "bg-primary text-white"
-                : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
+                ? "bg-white/10 text-white"
+                : "bg-transparent text-muted-foreground hover:text-foreground"
             }`}
+            style={{ fontWeight: 400 }}
           >
             General
           </button>
           <button
             onClick={() => setActiveTab("security")}
-            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 will-change-transform ${
+            className={`px-6 py-2.5 rounded-lg text-[14px] transition-all duration-200 ${
               activeTab === "security"
-                ? "bg-secondary text-white"
-                : "bg-card text-muted-foreground hover:text-foreground hover:bg-card/80"
+                ? "bg-white/10 text-white"
+                : "bg-transparent text-muted-foreground hover:text-foreground"
             }`}
+            style={{ fontWeight: 400 }}
           >
             Security
           </button>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto stagger-children">
+        <div className="max-w-[900px] mx-auto stagger-children">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs[activeTab].map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="luxury-card rounded-xl px-6 border-border hover:border-primary/30 transition-all duration-300 animate-on-scroll"
+                className="bg-transparent border-b border-border/50 animate-on-scroll"
               >
-                <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-[16px] hover:no-underline py-6 hover:text-white" style={{ fontWeight: 500 }}>
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                <AccordionContent className="text-muted-foreground leading-[1.7] pb-6 text-[15px]" style={{ fontWeight: 400 }}>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

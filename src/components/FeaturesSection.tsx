@@ -1,26 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link, Mail, ImageIcon } from "lucide-react";
-
-const features = [
-  {
-    icon: Link,
-    title: "Bio Links",
-    description: "Your digital identity, elevated. Create a stunning, personalized link hub that reflects your brand.",
-    highlights: ["Custom domains", "Analytics dashboard", "Unlimited links"],
-  },
-  {
-    icon: ImageIcon,
-    title: "Image Hosting",
-    description: "Premium storage for your visual content. Lightning-fast CDN delivery with military-grade encryption.",
-    highlights: ["Instant uploads", "Private galleries", "Direct links"],
-  },
-  {
-    icon: Mail,
-    title: "Email Service",
-    description: "Correspondence reimagined. Secure, ad-free email with your custom domain and complete privacy.",
-    highlights: ["Custom addresses", "Spam protection", "Zero tracking"],
-  },
-];
 
 const FeaturesSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -48,53 +26,97 @@ const FeaturesSection = () => {
 
   return (
     <section ref={sectionRef} id="features" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-[1200px]">
         {/* Section header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 space-y-4 animate-on-scroll">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-            Engineered for <span className="gradient-text">Excellence</span>
+        <div className="text-center mb-20 animate-on-scroll">
+          <h2 className="text-[36px] md:text-[42px] leading-tight mb-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+            Share files, send emails and look cool.
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Three premium services. One unified platform. Uncompromising privacy.
-          </p>
         </div>
 
-        {/* Feature cards - 2x2 grid on larger screens */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto stagger-children">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll"
-            >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all">
-                <feature.icon className={`w-6 h-6 ${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
-              </div>
-
-              {/* Title with colored accent */}
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                <span className={index % 2 === 0 ? 'text-primary' : 'text-secondary'}>
-                  {feature.title.split(' ')[0]}
-                </span>{' '}
-                {feature.title.split(' ').slice(1).join(' ')}
-              </h3>
-
-              {/* Description */}
-              <p className="text-muted-foreground mb-6 leading-relaxed text-base">
-                {feature.description}
-              </p>
-
-              {/* Highlights */}
-              <ul className="space-y-3">
-                {feature.highlights.map((highlight, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm">
-                    <div className={`w-1.5 h-1.5 rounded-full ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'}`} />
-                    <span className="text-foreground/80">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Feature cards - 2x2 grid */}
+        <div className="grid md:grid-cols-2 gap-6 stagger-children">
+          {/* 40+ Domains */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+              <span className="gradient-text">40+</span> Domains
+            </h3>
+            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+              We offer a unique selection of domains that you can use to elevate your presence
+            </p>
+            <div className="grid grid-cols-3 gap-3">
+              {['alo.ne', 'afra.id', 'ra.pe', 'sexu.al', 'deni.al', 'excus.es', 'bayon.et', 'karamb.it', 'trapst.ar'].map((domain, i) => (
+                <div key={i} className="bg-background border border-border rounded-lg px-3 py-2 text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
+                  {domain}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Unique Email */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+              <span className="gradient-text">Unique</span> Email
+            </h3>
+            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+              The only email provider designed with luxury and privacy in mind
+            </p>
+            <div className="bg-background border border-border rounded-lg px-4 py-3 mb-6">
+              <code className="text-[13px] font-mono" style={{ fontWeight: 400, color: '#6b9dff' }}>
+                t@exitsc.am • doppler@bayon.et • super@sexu.al • walking@afra.id
+              </code>
+            </div>
+            <p className="text-muted-foreground text-[14px] leading-[1.7]" style={{ fontWeight: 400 }}>
+              Why have a boring email when you can have a cool one with the added bonus of our minimal-logs policy
+            </p>
+          </div>
+
+          {/* Secure Filehost */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+              <span className="gradient-text">Secure</span> Filehost
+            </h3>
+            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+              With Alone, you can upload files securely — even we can't access their content. Our open-source end-to-end encryption is also supported on ShareX.
+            </p>
+            <div className="flex flex-wrap gap-4 text-[13px]" style={{ fontWeight: 400 }}>
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                <span className="text-muted-foreground">End-to-End Encryption</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                <span className="text-muted-foreground">ShareX Support</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                <span className="text-muted-foreground">2GB Storage</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Exclusive Biolink */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 will-change-transform animate-on-scroll">
+            <h3 className="text-[22px] mb-4 leading-tight" style={{ fontWeight: 500 }}>
+              <span className="gradient-text">Exclusive</span> Biolink
+            </h3>
+            <p className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" style={{ fontWeight: 400 }}>
+              The best domains, with over 170 customization options to ensure you never run out of ways to stand out
+            </p>
+            <div className="flex flex-wrap gap-4 text-[13px]" style={{ fontWeight: 400 }}>
+              <div className="flex items-center gap-2">
+                <span style={{ color: '#6b9dff' }}>170+</span>
+                <span className="text-muted-foreground">Customization Options</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span style={{ color: '#6b9dff' }}>•</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span style={{ color: '#6b9dff' }}>20+</span>
+                <span className="text-muted-foreground">Domains</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
