@@ -56,7 +56,16 @@ const FAQSection = () => {
     { size: 30, top: '12%', left: '8%' },
     { size: 38, top: '22%', left: '6%' },
     { size: 33, top: '25%', left: '12%' },
-    { size: 42, top: '10%', left: '15%' },
+    
+    { size: 42, top: '10%', left: '6%' },
+    { size: 35, top: '15%', left: '18%' },
+    { size: 30, top: '20%', left: '10%' },
+    { size: 38, top: '25%', left: '20%' },
+    { size: 33, top: '30%', left: '23%' },
+    { size: 35, top: '35%', left: '22%' },
+    { size: 40, top: '40%', left: '27%' },
+    { size: 35, top: '45%', left: '25%' },  
+    { size: 38, top: '50%', left: '9%' },
   ];
 
   return (

@@ -17,8 +17,16 @@ const StatsSection = () => {
     { size: 30, top: '3%', right: '18%' },
     { size: 38, top: '15%', right: '15%' },
     { size: 42, top: '8%', right: '22%' },
-    { size: 33, top: '18%', right: '20%' },
+    { size: 33, top: '18%', right: '35%' },
     { size: 36, top: '4%', right: '28%' },
+    { size: 30, top: '10%', right: '27%' },
+    { size: 35, top: '20%', right: '30%' },
+    { size: 30, top: '25%', right: '27%' },
+    { size: 32, top: '30%', right: '5%' },
+    { size: 34, top: '35%', right: '23%' },
+    { size: 36, top: '40%', right: '17%' },
+    { size: 38, top: '45%', right: '6%' },
+    { size: 40, top: '50%', right: '15%' },
   ];
 
   return (
