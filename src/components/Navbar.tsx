@@ -52,14 +52,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button 
-            size="sm" 
-            variant="ghost"
-            className="text-[14px] text-muted-foreground hover:text-foreground"
-            style={{ fontWeight: 400 }}
-          >
-            Sign In
-          </Button>
+        <Button 
+  size="sm" 
+  variant="ghost"
+  className="text-[14px] text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors duration-300"
+  style={{ fontWeight: 400 }}
+>
+  Sign In
+</Button>
           <Button 
             size="sm" 
             className="bg-white text-background hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform text-[14px]"
