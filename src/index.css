@@ -209,11 +209,15 @@ All colors MUST be HSL.
       transform: translateY(-250px);
       opacity: 0;
     }
-    5% {
+    2% {
       opacity: 0.8;
     }
-    95% {
+    8% {
       opacity: 0.3;
+    }
+    10% {
+      transform: translateY(calc(100vh + 250px));
+      opacity: 0;
     }
     100% {
       transform: translateY(calc(100vh + 250px));
@@ -225,17 +229,17 @@ All colors MUST be HSL.
     position: fixed;
     width: 2px;
     background: linear-gradient(to bottom, transparent, #6b9dff, transparent);
-    animation: shooting-star 3s linear infinite;
+    animation: shooting-star 50s linear infinite;
     z-index: 1;
     pointer-events: none;
     opacity: 0;
   }
   
-  .shooting-star:nth-child(1) { left: 10%; animation-delay: -2s; height: 200px; }
-  .shooting-star:nth-child(2) { left: 25%; animation-delay: 8s; height: 180px; }
-  .shooting-star:nth-child(3) { left: 45%; animation-delay: 16s; height: 220px; }
-  .shooting-star:nth-child(4) { left: 65%; animation-delay: 24s; height: 190px; }
-  .shooting-star:nth-child(5) { left: 85%; animation-delay: 32s; height: 210px; }
+  .shooting-star:nth-child(1) { left: 10%; animation-delay: 0s; height: 200px; }
+  .shooting-star:nth-child(2) { left: 25%; animation-delay: 9s; height: 180px; }
+  .shooting-star:nth-child(3) { left: 45%; animation-delay: 18s; height: 220px; }
+  .shooting-star:nth-child(4) { left: 65%; animation-delay: 27s; height: 190px; }
+  .shooting-star:nth-child(5) { left: 85%; animation-delay: 36s; height: 210px; }
   
   /* Vertical lines background pattern */
   .vertical-line {
