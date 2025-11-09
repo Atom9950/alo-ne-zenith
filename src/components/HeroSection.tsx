@@ -26,7 +26,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
       {/* Vertical grid lines background - hidden on mobile for better performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         {verticalGridLines.map((line, i) => (
