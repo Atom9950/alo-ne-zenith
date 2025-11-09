@@ -26,9 +26,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Vertical grid lines background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+      {/* Vertical grid lines background - hidden on mobile for better performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         {verticalGridLines.map((line, i) => (
           <motion.div
             key={i}
@@ -73,17 +73,17 @@ const HeroSection = () => {
       <div className="shooting-star" />
       <div className="shooting-star" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-[1100px] mx-auto text-center space-y-8">
           {/* Badge - animated */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-white/10"
           >
-            <span className="text-[13px] text-white" style={{ fontWeight: 400 }}>Join our new Discord!</span>
-            <ArrowRight className="w-3.5 h-3.5 text-white" />
+            <span className="text-[12px] sm:text-[13px] text-white" style={{ fontWeight: 400 }}>Join our new Discord!</span>
+            <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-white" />
           </motion.div>
 
           {/* Main headline - matching reference exactly */}
@@ -91,7 +91,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15]"
+            className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15] px-4"
             style={{ letterSpacing: "-0.02em", fontWeight: 500 }}
           >
             Your digital space,{" "}
@@ -103,7 +103,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            className="text-[15px] md:text-[16px] text-muted-foreground max-w-[900px] mx-auto leading-[1.7]"
+            className="text-[14px] sm:text-[15px] md:text-[16px] text-muted-foreground max-w-[900px] mx-auto leading-[1.7] px-4"
             style={{ fontWeight: 400, letterSpacing: "0em" }}
           >
             The luxury privacy-based service dedicated to safeguarding your information in style with our personalized bio-link service, file hosting, and email service.
@@ -143,18 +143,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-            className="pt-16 flex flex-wrap items-center justify-center gap-8 text-[14px] text-muted-foreground"
+            className="pt-12 md:pt-16 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[13px] md:text-[14px] text-muted-foreground px-4"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#6b9dff' }} />
               <span>End-to-end encryption</span>
             </div>
-            <span className="text-muted-foreground/30">•</span>
+            <span className="text-muted-foreground/30 hidden sm:inline">•</span>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#4d7fff', animationDelay: "1s" }} />
               <span>Zero-knowledge architecture</span>
             </div>
-            <span className="text-muted-foreground/30">•</span>
+            <span className="text-muted-foreground/30 hidden sm:inline">•</span>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: '#3366ff', animationDelay: "2s" }} />
               <span>GDPR compliant</span>

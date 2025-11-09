@@ -351,4 +351,19 @@ All colors MUST be HSL.
       transition-duration: 0.01ms !important;
     }
   }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .floating-square {
+      display: none;
+    }
+    
+    .scattered-square {
+      display: none;
+    }
+    
+    .shooting-star {
+      display: none;
+    }
+  }
 }

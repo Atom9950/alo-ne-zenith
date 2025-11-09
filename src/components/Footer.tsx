@@ -11,8 +11,8 @@ const Footer = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="border-t border-border py-12"
     >
-     <div className="container mx-auto px-6 max-w-[1200px]">
-  <div className="grid md:grid-cols-4 gap-12 mb-12">
+     <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
     {/* Brand */}
     <div className="space-y-4">
       <a href="/" className="group relative inline-block pb-2">

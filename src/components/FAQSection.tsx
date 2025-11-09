@@ -113,19 +113,19 @@ const FAQSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-[800px] mx-auto text-center mb-16 space-y-4"
+          className="max-w-[800px] mx-auto text-center mb-12 md:mb-16 space-y-4"
         >
-          <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight px-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
             Frequently <span className="gradient-text">asked</span> questions
           </h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.7]" style={{ fontWeight: 400 }}>
+          <p className="text-[14px] sm:text-[15px] text-muted-foreground leading-[1.7] px-4" style={{ fontWeight: 400 }}>
             Everything you need to know about our services. Can't find the answer you're looking for? Feel free to contact us.
           </p>
         </motion.div>
@@ -136,11 +136,11 @@ const FAQSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="flex items-center justify-center gap-3 mb-12"
+          className="flex items-center justify-center gap-2 sm:gap-3 mb-8 md:mb-12 px-4"
         >
           <button
             onClick={() => setActiveTab("general")}
-            className={`px-6 py-2.5 rounded-lg text-[14px] transition-all duration-200 ${
+            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-[13px] sm:text-[14px] transition-all duration-200 ${
               activeTab === "general"
                 ? "bg-white/10 text-white"
                 : "bg-transparent text-muted-foreground hover:text-foreground"
@@ -151,7 +151,7 @@ const FAQSection = () => {
           </button>
           <button
             onClick={() => setActiveTab("security")}
-            className={`px-6 py-2.5 rounded-lg text-[14px] transition-all duration-200 ${
+            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-[13px] sm:text-[14px] transition-all duration-200 ${
               activeTab === "security"
                 ? "bg-white/10 text-white"
                 : "bg-transparent text-muted-foreground hover:text-foreground"
@@ -163,7 +163,8 @@ const FAQSection = () => {
         </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-[900px] mx-auto">
+        <div className="max-w-[900px] mx-auto px-4"
+>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs[activeTab].map((faq, index) => (
               <motion.div
@@ -177,10 +178,10 @@ const FAQSection = () => {
                   value={`item-${index}`}
                   className="bg-transparent border-b border-border/50"
                 >
-                  <AccordionTrigger className="text-left text-[16px] hover:no-underline py-6 hover:text-white" style={{ fontWeight: 500 }}>
+                  <AccordionTrigger className="text-left text-[15px] sm:text-[16px] hover:no-underline py-4 sm:py-6 hover:text-white" style={{ fontWeight: 500 }}>
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-[1.7] pb-6 text-[15px]" style={{ fontWeight: 400 }}>
+                  <AccordionContent className="text-muted-foreground leading-[1.7] pb-4 sm:pb-6 text-[14px] sm:text-[15px]" style={{ fontWeight: 400 }}>
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

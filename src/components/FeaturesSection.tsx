@@ -42,29 +42,29 @@ const FeaturesSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
         {/* Section header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-[36px] md:text-[42px] leading-tight mb-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight mb-4 px-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
             Share files, send emails and look cool.
           </h2>
         </motion.div>
 
         {/* Feature cards - 2x2 grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* 40+ Domains */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            className="rounded-2xl p-6 sm:p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
             style={{
               boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
             }}
@@ -74,7 +74,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-              className="text-[22px] mb-4 leading-tight" 
+              className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
               style={{ fontWeight: 500 }}
             >
               <span className="gradient-text">40+</span> Domains
@@ -84,7 +84,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              className="text-muted-foreground mb-6 leading-[1.7] text-[14px] sm:text-[15px]" 
               style={{ fontWeight: 400 }}
             >
               We offer a unique selection of domains that you can use to elevate your presence
@@ -94,7 +94,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-              className="grid grid-cols-3 gap-3"
+              className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3"
             >
               {['alo.ne', 'afra.id', 'ra.pe', 'sexu.al', 'deni.al', 'excus.es', 'bayon.et', 'karamb.it', 'trapst.ar'].map((domain, i) => (
                 <motion.div 
@@ -103,7 +103,7 @@ const FeaturesSection = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ margin: "-100px" }}
                   transition={{ duration: 0.3, delay: 0.6 + (i * 0.05), ease: "easeOut" }}
-                  className="bg-background border border-border rounded-lg px-3 py-2 text-[13px] font-mono" 
+                  className="bg-background border border-border rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-[13px] font-mono" 
                   style={{ fontWeight: 400, color: '#6b9dff' }}
                 >
                   {domain}
@@ -118,7 +118,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            className="rounded-2xl p-6 sm:p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
             style={{
               boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
             }}
@@ -128,7 +128,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-              className="text-[22px] mb-4 leading-tight" 
+              className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
               style={{ fontWeight: 500 }}
             >
               <span className="gradient-text">Unique</span> Email
@@ -138,7 +138,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              className="text-muted-foreground mb-6 leading-[1.7] text-[14px] sm:text-[15px]" 
               style={{ fontWeight: 400 }}
             >
               The only email provider designed with luxury and privacy in mind
@@ -161,7 +161,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-              className="text-muted-foreground text-[14px] leading-[1.7]" 
+              className="text-muted-foreground text-[13px] sm:text-[14px] leading-[1.7]" 
               style={{ fontWeight: 400 }}
             >
               Why have a boring email when you can have a cool one with the added bonus of our minimal-logs policy
@@ -174,7 +174,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            className="rounded-2xl p-6 sm:p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
             style={{
               boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
             }}
@@ -184,7 +184,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-              className="text-[22px] mb-4 leading-tight" 
+              className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
               style={{ fontWeight: 500 }}
             >
               <span className="gradient-text">Secure</span> Filehost
@@ -194,7 +194,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              className="text-muted-foreground mb-6 leading-[1.7] text-[14px] sm:text-[15px]" 
               style={{ fontWeight: 400 }}
             >
               With Alone, you can upload files securely — even we can't access their content. Our open-source end-to-end encryption is also supported on ShareX.
@@ -204,7 +204,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-              className="flex flex-wrap gap-4 text-[13px]" 
+              className="flex flex-wrap gap-3 sm:gap-4 text-[12px] sm:text-[13px]" 
               style={{ fontWeight: 400 }}
             >
               {['End-to-End Encryption', 'ShareX Support', '2GB Storage'].map((feature, i) => (
@@ -229,7 +229,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="rounded-2xl p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
+            className="rounded-2xl p-6 sm:p-8 md:p-10 group transition-all duration-300 hover:shadow-glow hover:-translate-y-2 will-change-transform bg-transparent border border-white/20"
             style={{
               boxShadow: 'inset 0 0 10px 10px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1)'
             }}
@@ -239,7 +239,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-              className="text-[22px] mb-4 leading-tight" 
+              className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
               style={{ fontWeight: 500 }}
             >
               <span className="gradient-text">Exclusive</span> Biolink
@@ -249,7 +249,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-              className="text-muted-foreground mb-6 leading-[1.7] text-[15px]" 
+              className="text-muted-foreground mb-6 leading-[1.7] text-[14px] sm:text-[15px]" 
               style={{ fontWeight: 400 }}
             >
               The best domains, with over 170 customization options to ensure you never run out of ways to stand out
@@ -259,7 +259,7 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-              className="flex flex-wrap gap-4 text-[13px]" 
+              className="flex flex-wrap gap-3 sm:gap-4 text-[12px] sm:text-[13px]" 
               style={{ fontWeight: 400 }}
             >
               <motion.div 

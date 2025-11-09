@@ -36,40 +36,40 @@ const TeamSection = () => {
           />
         ))}
       </div>
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Team Members */}
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex gap-12 justify-center"
+            className="flex gap-8 sm:gap-12 justify-center order-2 md:order-1"
           >
             {/* Ryan */}
             <div className="text-center">
-              <div className="w-32 h-32 rounded-full mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(107, 157, 255, 0.2), rgba(51, 102, 255, 0.2))' }}>
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mb-3 sm:mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(107, 157, 255, 0.2), rgba(51, 102, 255, 0.2))' }}>
                 <img 
                   src="/image1.png" 
                   alt="Ryan" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[18px] mb-1" style={{ fontWeight: 500 }}>Ryan</h3>
-              <p className="text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>FOUNDER</p>
+              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 500 }}>Ryan</h3>
+              <p className="text-[11px] sm:text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>FOUNDER</p>
             </div>
 
             {/* Iniqus */}
             <div className="text-center">
-              <div className="w-32 h-32 rounded-full mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(51, 102, 255, 0.2), rgba(107, 157, 255, 0.2))' }}>
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mb-3 sm:mb-4 mx-auto overflow-hidden border border-border" style={{ background: 'linear-gradient(135deg, rgba(51, 102, 255, 0.2), rgba(107, 157, 255, 0.2))' }}>
                 <img 
                   src="/image.png" 
                   alt="Iniqus" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[18px] mb-1" style={{ fontWeight: 500 }}>Iniqus</h3>
-              <p className="text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>DEVELOPER</p>
+              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 500 }}>Iniqus</h3>
+              <p className="text-[11px] sm:text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>DEVELOPER</p>
             </div>
           </motion.div>
 
@@ -79,16 +79,16 @@ const TeamSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6 order-1 md:order-2"
           >
             <div>
-              <p className="text-[12px] text-muted-foreground uppercase tracking-wider mb-2" style={{ fontWeight: 400 }}>THE TEAM</p>
-              <h2 className="text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+              <p className="text-[11px] sm:text-[12px] text-muted-foreground uppercase tracking-wider mb-2" style={{ fontWeight: 400 }}>THE TEAM</p>
+              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
                 Meet Our <span className="gradient-text">Team</span>
               </h2>
             </div>
 
-            <div className="space-y-4 text-[15px] text-muted-foreground leading-[1.8]" style={{ fontWeight: 400 }}>
+            <div className="space-y-3 sm:space-y-4 text-[14px] sm:text-[15px] text-muted-foreground leading-[1.8]" style={{ fontWeight: 400 }}>
               <p>
                 The team behind Alone, a privacy-focused service, includes Ryan and Iniqus as of this moment. Ryan launched the Alo.ne email service in 2023, file hosting in 2024 and a biolink service in 2025.
               </p>
