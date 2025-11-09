@@ -35,9 +35,16 @@ const Navbar = () => {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="group relative inline-block flex-shrink-0">
-              <img src="/image2.png" alt="logo" className="h-6 md:h-7 w-auto transition-transform duration-300 ease-out group-hover:scale-110" />
-            </a>
+           <div className="container mx-auto px-10 flex items-center justify-between max-w-[1200px]">
+  <a href="/" className="group relative inline-block pb-2">
+    <img src="/image2.png" alt="logo" className="h-8 w-auto transition-transform duration-300 ease-out group-hover:scale-110" />
+    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full origin-left" 
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 50%)',
+            background: 'linear-gradient(to right, transparent 0%, white 50%, transparent 100%)'
+          }}></span>
+  </a>
+  </div>
 
             {/* Centered Navigation Links */}
             <div className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 transform -translate-x-1/2">
