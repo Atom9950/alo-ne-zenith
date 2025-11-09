@@ -12,12 +12,12 @@ const FeaturesSection = () => {
     { size: 95, top: '55%', left: '40%', delay: 2.5 },
     { size: 105, top: '80%', left: '70%', delay: 4.5 },
     { size: 130, top: '85%', left: '75%', delay: 5 },
-    { size: 95, top: '55%', left: '45%', delay: 2.5 },
-    { size: 90, top: '75%', left: '20%', delay: 3 },
-    { size: 120, top: '10%', left: '10%', delay: 0 },
-    { size: 140, top: '45%', left: '15%', delay: 4 },
-    { size: 100, top: '20%', left: '80%', delay: 2 },
-    { size: 130, top: '30%', left: '55%', delay: 5 },
+    { size: 95, top: '60%', left: '45%', delay: 2.5 },
+    { size: 90, top: '80%', left: '20%', delay: 3 },
+    { size: 120, top: '15%', left: '10%', delay: 0 },
+    { size: 140, top: '50%', left: '15%', delay: 4 },
+    { size: 100, top: '25%', left: '80%', delay: 2 },
+    { size: 130, top: '35%', left: '55%', delay: 5 },
 
     
 
