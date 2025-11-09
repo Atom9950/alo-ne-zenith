@@ -41,19 +41,19 @@ const Navbar = () => {
 
             {/* Centered Navigation Links */}
             <div className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 transform -translate-x-1/2">
-              <a href="#about" className="text-[14px] text-white/70 hover:text-white transition-colors" style={{ fontWeight: 400 }}>
+              <a href="#about" className="text-[14px] text-white/70 hover:text-white hover:cursor-not-allowed transition-colors" style={{ fontWeight: 400 }}>
                 About
               </a>
-              <a href="#features" className="text-[14px] text-white/70 hover:text-white transition-colors" style={{ fontWeight: 400 }}>
+              <a href="#features" className="text-[14px] text-white/70 hover:text-white hover:cursor-not-allowed transition-colors" style={{ fontWeight: 400 }}>
                 Features
               </a>
-              <a href="#pricing" className="text-[14px] text-white/70 hover:text-white transition-colors" style={{ fontWeight: 400 }}>
+              <a href="#pricing" className="text-[14px] text-white/70 hover:text-white hover:cursor-not-allowed transition-colors" style={{ fontWeight: 400 }}>
                 Pricing
               </a>
-              <a href="#blog" className="text-[14px] text-white/70 hover:text-white transition-colors" style={{ fontWeight: 400 }}>
+              <a href="#blog" className="text-[14px] text-white/70 hover:text-white hover:cursor-not-allowed transition-colors" style={{ fontWeight: 400 }}>
                 Blog
               </a>
-              <a href="#contact" className="text-[14px] text-white/70 hover:text-white transition-colors" style={{ fontWeight: 400 }}>
+              <a href="#contact" className="text-[14px] text-white/70 hover:text-white hover:cursor-not-allowed transition-colors" style={{ fontWeight: 400 }}>
                 Contact
               </a>
             </div>
@@ -63,14 +63,14 @@ const Navbar = () => {
               <Button 
                 size="sm" 
                 variant="ghost"
-                className="hidden sm:inline-flex text-[14px] text-white/70 hover:text-white hover:bg-transparent transition-colors duration-300 h-8 px-4"
+                className="hidden sm:inline-flex text-[14px] text-white/70 hover:text-white hover:bg-transparent hover:cursor-not-allowed transition-colors duration-300 h-8 px-4"
                 style={{ fontWeight: 400 }}
               >
                 Sign up
               </Button>
               <Button 
                 size="sm" 
-                className="hidden sm:inline-flex bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 h-8 text-[14px] transition-all duration-200 rounded-lg"
+                className="hidden sm:inline-flex bg-white/10 hover:bg-white/20 hover:cursor-not-allowed text-white border border-white/20 px-5 h-8 text-[14px] transition-all duration-200 rounded-lg"
                 style={{ fontWeight: 400 }}
               >
                 Login
@@ -106,15 +106,15 @@ const Navbar = () => {
                 <a 
                   href="#about" 
                   onClick={closeMobileMenu}
-                  className="block text-[16px] text-muted-foreground hover:text-foreground transition-colors py-2" 
+                  className="block text-[16px] text-muted-foreground hover:text-foreground hover:cursor-not-allowed transition-colors py-2" 
                   style={{ fontWeight: 400 }}
                 >
                   About
                 </a>
                 <a 
-                  href="#features" 
+                  href="#" 
                   onClick={closeMobileMenu}
-                  className="block text-[16px] text-muted-foreground hover:text-foreground transition-colors py-2" 
+                  className="block text-[16px] text-muted-foreground hover:text-foreground hover:cursor-not-allowed transition-colors py-2" 
                   style={{ fontWeight: 400 }}
                 >
                   Features
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <a 
                   href="#pricing" 
                   onClick={closeMobileMenu}
-                  className="block text-[16px] text-muted-foreground hover:text-foreground transition-colors py-2" 
+                  className="block text-[16px] text-muted-foreground hover:text-foreground hover:cursor-not-allowed transition-colors py-2" 
                   style={{ fontWeight: 400 }}
                 >
                   Pricing
@@ -130,7 +130,7 @@ const Navbar = () => {
                 <a 
                   href="#blog" 
                   onClick={closeMobileMenu}
-                  className="block text-[16px] text-muted-foreground hover:text-foreground transition-colors py-2" 
+                  className="block text-[16px] text-muted-foreground hover:text-foreground hover:cursor-not-allowed transition-colors py-2" 
                   style={{ fontWeight: 400 }}
                 >
                   Blog
@@ -138,7 +138,7 @@ const Navbar = () => {
                 <a 
                   href="#contact" 
                   onClick={closeMobileMenu}
-                  className="block text-[16px] text-muted-foreground hover:text-foreground transition-colors py-2" 
+                  className="block text-[16px] text-muted-foreground hover:text-foreground hover:cursor-not-allowed transition-colors py-2" 
                   style={{ fontWeight: 400 }}
                 >
                   Contact
@@ -147,7 +147,7 @@ const Navbar = () => {
                   <Button 
                     size="lg" 
                     variant="ghost"
-                    className="w-full text-[16px] text-muted-foreground hover:text-foreground hover:bg-transparent transition-colors duration-300"
+                    className="w-full text-[16px] text-muted-foreground hover:text-foreground hover:bg-transparent hover:cursor-not-allowed transition-colors duration-300"
                     style={{ fontWeight: 400 }}
                     onClick={closeMobileMenu}
                   >
@@ -156,7 +156,7 @@ const Navbar = () => {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    className="w-full border border-border hover:bg-card text-[16px] rounded-lg"
+                    className="w-full border border-border hover:bg-card hover:cursor-not-allowed text-[16px] rounded-lg"
                     style={{ fontWeight: 400 }}
                     onClick={closeMobileMenu}
                   >
