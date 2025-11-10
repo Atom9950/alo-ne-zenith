@@ -351,7 +351,7 @@ All colors MUST be HSL.
   }
 
   /* Mobile optimizations */
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .floating-square {
       display: none;
     }
@@ -363,5 +363,5 @@ All colors MUST be HSL.
     .shooting-star {
       display: none;
     }
-  }
+  } */
 }

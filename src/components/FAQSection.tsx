@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -48,14 +48,50 @@ const faqs = {
 
 const FAQSection = () => {
   const [activeTab, setActiveTab] = useState<"general" | "security">("general");
+  const headingRef = useRef(null);
+  const [headingBottom, setHeadingBottom] = useState(0);
 
-  const verticalGridLines = Array.from({ length: 40 }, (_, i) => ({
-    left: `${i * 2.5}%`,
-    height: `${20 + Math.random() * 80}%`,
-    bottom: `${Math.random() * 30}%`,
-    opacity: 0.2 + Math.random() * 0.6,
-    delay: Math.random() * 2,
-  }));
+  useEffect(() => {
+    const updateHeadingPosition = () => {
+      if (headingRef.current) {
+        const rect = headingRef.current.getBoundingClientRect();
+        setHeadingBottom(rect.bottom);
+      }
+    };
+
+    updateHeadingPosition();
+    window.addEventListener('resize', updateHeadingPosition);
+    return () => window.removeEventListener('resize', updateHeadingPosition);
+  }, []);
+
+  // Generate random heights once
+  const [randomHeights] = useState(() => 
+    Array.from({ length: 40 }, () => {
+      const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
+      const minHeight = isDesktop ? 100 : 60;
+      const maxHeight = isDesktop ? 200 : 150;
+      return minHeight + Math.random() * (maxHeight - minHeight);
+    })
+  );
+
+  const verticalGridLines = Array.from({ length: 40 }, (_, i) => {
+    const totalLines = 40;
+    const centerIndex = totalLines / 2;
+    const distanceFromCenter = Math.abs(i - centerIndex);
+    const maxDistance = totalLines / 2;
+    
+    // Create inverted semicircular curve - center lines start lower, outer lines start higher
+    const curveDepth = 150;
+    const curveOffset = (1 - Math.pow(distanceFromCenter / maxDistance, 2)) * curveDepth;
+    
+    return {
+      left: `${i * 2.5}%`,
+      height: `${randomHeights[i]}vh`,
+      top: `${headingBottom + curveOffset}px`,
+      opacity: 0.2 + Math.random() * 0.4,
+      delay: Math.random() * 2,
+    };
+  });
 
   const scatteredSquares = [
     { size: 35, top: '15%', left: '5%' },
@@ -77,7 +113,7 @@ const FAQSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Vertical grid lines background */}
+      {/* Vertical grid lines background - now starting from heading bottom in a curve */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {verticalGridLines.map((line, i) => (
           <motion.div
@@ -89,11 +125,11 @@ const FAQSection = () => {
             className="absolute"
             style={{
               left: line.left,
-              bottom: line.bottom,
+              top: line.top,
               width: '1px',
               height: line.height,
-              background: `linear-gradient(to top, transparent, rgba(107, 157, 255, ${line.opacity}), transparent)`,
-              transformOrigin: 'bottom',
+              background: `linear-gradient(to bottom, rgba(107, 157, 255, ${line.opacity}), transparent)`,
+              transformOrigin: 'top',
               filter: 'blur(0.5px)',
             }}
           />
@@ -114,8 +150,9 @@ const FAQSection = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
-        {/* Section header */}
+        {/* Section header - with ref to track position */}
         <motion.div 
+          ref={headingRef}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-100px" }}
@@ -163,8 +200,7 @@ const FAQSection = () => {
         </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-[900px] mx-auto px-4"
->
+        <div className="max-w-[900px] mx-auto px-4">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs[activeTab].map((faq, index) => (
               <motion.div
