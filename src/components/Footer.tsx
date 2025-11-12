@@ -23,14 +23,14 @@ const Footer = () => {
                 background: 'linear-gradient(to right, transparent 0%, white 50%, transparent 100%)'
               }}></span>
       </a>
-      <p className="text-[13px] text-muted-foreground leading-relaxed" style={{ fontWeight: 400 }}>
+      <p className="text-[13px] text-muted-foreground leading-relaxed" style={{ fontWeight: 300 }}>
         Privacy-first digital services for the discerning individual.
       </p>
     </div>
 
           {/* Product */}
           <div className="space-y-4">
-            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 600 }}>Product</h4>
+            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 300 }}>Product</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
@@ -38,17 +38,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Image Hosting
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Email Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Pricing
                 </a>
               </li>
@@ -57,25 +57,25 @@ const Footer = () => {
 
           {/* Company */}
           <div className="space-y-4">
-            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 600 }}>Company</h4>
+            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 300 }}>Company</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Contact
                 </a>
               </li>
@@ -84,25 +84,25 @@ const Footer = () => {
 
           {/* Legal */}
           <div className="space-y-4">
-            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 600 }}>Legal</h4>
+            <h4 className="text-[14px] uppercase tracking-wider" style={{ fontWeight: 300 }}>Legal</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   Cookie Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 400 }}>
+                <a href="#" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 300 }}>
                   GDPR
                 </a>
               </li>
@@ -112,14 +112,14 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[14px] text-muted-foreground" style={{ fontWeight: 400 }}>
+          <p className="text-[14px] text-muted-foreground" style={{ fontWeight: 300 }}>
             © {currentYear} alo.ne. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="#"
               className="text-[14px] text-muted-foreground hover:text-foreground transition-colors"
-              style={{ fontWeight: 400 }}
+              style={{ fontWeight: 300 }}
               aria-label="Twitter"
             >
               Twitter
@@ -127,7 +127,7 @@ const Footer = () => {
             <a
               href="#"
               className="text-[14px] text-muted-foreground hover:text-foreground transition-colors"
-              style={{ fontWeight: 400 }}
+              style={{ fontWeight: 300 }}
               aria-label="LinkedIn"
             >
               LinkedIn
@@ -135,7 +135,7 @@ const Footer = () => {
             <a
               href="#"
               className="text-[14px] text-muted-foreground hover:text-foreground transition-colors"
-              style={{ fontWeight: 400 }}
+              style={{ fontWeight: 300 }}
               aria-label="GitHub"
             >
               GitHub

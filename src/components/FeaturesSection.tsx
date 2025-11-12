@@ -51,7 +51,7 @@ const FeaturesSection = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight mb-4 px-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight mb-4 px-4" style={{ fontWeight: 300, letterSpacing: "-0.01em" }}>
             Share files, send emails and look cool.
           </h2>
         </motion.div>
@@ -75,7 +75,7 @@ const FeaturesSection = () => {
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
-              style={{ fontWeight: 500 }}
+              style={{ fontWeight: 300 }}
             >
               <span className="gradient-text">40+</span> Domains
             </motion.h3>
@@ -129,7 +129,7 @@ const FeaturesSection = () => {
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
-              style={{ fontWeight: 500 }}
+              style={{ fontWeight: 300 }}
             >
               <span className="gradient-text">Unique</span> Email
             </motion.h3>
@@ -185,7 +185,7 @@ const FeaturesSection = () => {
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
-              style={{ fontWeight: 500 }}
+              style={{ fontWeight: 300 }}
             >
               <span className="gradient-text">Secure</span> Filehost
             </motion.h3>
@@ -240,7 +240,7 @@ const FeaturesSection = () => {
               viewport={{ margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               className="text-[20px] sm:text-[22px] mb-4 leading-tight" 
-              style={{ fontWeight: 500 }}
+              style={{ fontWeight: 300 }}
             >
               <span className="gradient-text">Exclusive</span> Biolink
             </motion.h3>

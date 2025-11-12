@@ -55,7 +55,7 @@ const TeamSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 500 }}>Ryan</h3>
+              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 300 }}>Ryan</h3>
               <p className="text-[11px] sm:text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>FOUNDER</p>
             </div>
 
@@ -68,7 +68,7 @@ const TeamSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 500 }}>Iniqus</h3>
+              <h3 className="text-[16px] sm:text-[18px] mb-1" style={{ fontWeight: 300 }}>Iniqus</h3>
               <p className="text-[11px] sm:text-[13px] text-muted-foreground uppercase tracking-wider" style={{ fontWeight: 400 }}>DEVELOPER</p>
             </div>
           </motion.div>
@@ -83,7 +83,7 @@ const TeamSection = () => {
           >
             <div>
               <p className="text-[11px] sm:text-[12px] text-muted-foreground uppercase tracking-wider mb-2" style={{ fontWeight: 400 }}>THE TEAM</p>
-              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight" style={{ fontWeight: 300, letterSpacing: "-0.01em" }}>
                 Meet Our <span className="gradient-text">Team</span>
               </h2>
             </div>

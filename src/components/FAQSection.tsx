@@ -159,7 +159,7 @@ const FAQSection = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-[800px] mx-auto text-center mb-12 md:mb-16 space-y-4"
         >
-          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight px-4" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[42px] leading-tight px-4" style={{ fontWeight: 300, letterSpacing: "-0.01em" }}>
             Frequently <span className="gradient-text">asked</span> questions
           </h2>
           <p className="text-[14px] sm:text-[15px] text-muted-foreground leading-[1.7] px-4" style={{ fontWeight: 400 }}>
@@ -214,7 +214,7 @@ const FAQSection = () => {
                   value={`item-${index}`}
                   className="bg-transparent border-b border-border/50"
                 >
-                  <AccordionTrigger className="text-left text-[15px] sm:text-[16px] hover:no-underline py-4 sm:py-6 hover:text-white" style={{ fontWeight: 500 }}>
+                  <AccordionTrigger className="text-left text-[15px] sm:text-[16px] hover:no-underline py-4 sm:py-6 hover:text-white" style={{ fontWeight: 300 }}>
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-[1.7] pb-4 sm:pb-6 text-[14px] sm:text-[15px]" style={{ fontWeight: 400 }}>

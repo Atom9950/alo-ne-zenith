@@ -141,7 +141,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-[1.15] px-4"
-            style={{ letterSpacing: "-0.02em", fontWeight: 500 }}
+            style={{ letterSpacing: "-0.02em", fontWeight: 300 }}
           >
             Your digital space,{" "}
             <span className="gradient-text will-change-transform">simplified.</span>
@@ -169,7 +169,7 @@ const HeroSection = () => {
               size="lg" 
               className="text-white hover:shadow-luxury hover:cursor-not-allowed group px-8 h-12 text-[16px] transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
               style={{ 
-                fontWeight: 500,
+                fontWeight: 300,
                 background: 'linear-gradient(90deg, #6b9dff, #4d7fff, #3366ff)',
                 backgroundSize: '200% auto'
               }}
@@ -181,7 +181,7 @@ const HeroSection = () => {
               size="lg" 
               variant="outline" 
               className="border-border hover:bg-card hover:cursor-not-allowed px-8 h-12 text-[16px] hover:border-primary/50 transition-all duration-200 hover:scale-105 active:scale-98 will-change-transform"
-              style={{ fontWeight: 500 }}
+              style={{ fontWeight: 300 }}
             >
               Learn More
             </Button>
